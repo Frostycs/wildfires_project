@@ -1,0 +1,148 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header, .header, .header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  position: relative;
+}
+
+.header {
+  background-image: linear-gradient(rgba(87, 60, 250,1), 70%, rgba(87, 60, 250, 0));
+}
+
+.header, .header-container {
+  height: 150px;
+}
+
+.header-container {
+  width: auto;
+  color: white;
+}
+
+h1 {
+  text-align: center;
+}
+
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+.header, #main, #map, html {
+  width: 100%;
+  height: 100%;
+}
+
+.fire-icon {
+  margin-right: 20px;
+}
+
+#left-bar{
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 80%;
+  width: 30%;
+  margin-left: 3%;
+}
+
+#story, #legend {
+  display: flex;
+  width: 100%;
+  background-color: white;
+  opacity: 0.8;
+  border-radius: 2%;
+}
+
+#story {
+  height: 70%;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  overflow-x: 0;
+}
+
+.story-sec {
+  width: 100%;
+}
+
+.story-text {
+  font-size: 20pt;
+}
+
+#legend {
+  margin-top: 20px;
+  height: 25%;
+}
+
+/* #legend {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 220px;
+  background: hsla(0, 0%, 100%, 0.192);
+  margin-right: 30px;
+  margin-bottom: 30px;
+  padding: 10px 10px 0px 10px;
+  border-radius: 3px;
+  text-align: justify;
+} */
+
+.story-head, .story-text {
+  width: 100%;
+}
+
+.story-sec {
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#map-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  position: absolute;
+  max-width: 270px;
+  max-height: 180px;
+  margin-left: 85%;
+}
+
+/*slider*/
+.slider-control-container {
+  padding: 5px;
+}
+
+.slider-control-range-display {
+  font-size: 18px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-weight: 700;
+}
+
+/*------------------------------Custom Scrollbar------------------------------*/
+::-webkit-scrollbar {
+  width: 7px;
+  padding-top: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px white;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: grey;
+  border-radius: 10px;
+}
+/*----------------------------------------------------------------------------*/
