@@ -1,4 +1,5 @@
 # Wildfires In Washington State
+## *Note: this is a temporary project description and will be rewritten.
 ## Project Proposal
 Wildfire causes harm to buildings around them from the spread, and with wildfire data, we can find where wildfires most occur and during which time in correlation to the health of the forests around where the wildfire starts, Using a geo-narrative to map our data would be the best way to represent our idea. We will use a geo-narrative with thematic layers to show the change of wildfires over time.
 ### Here is a sketch-up of our project idea
@@ -6,7 +7,8 @@ Wildfire causes harm to buildings around them from the spread, and with wildfire
 ### Revised Design of the Project
 ![Revised Design](/imgs/design_revised.PNG)
 ## Link to Project
-[Project](https://davidng8.github.io/Wildfires/index.html)
+Click on the link below to see our project!
+[Github Pages Visualization](https://davidng8.github.io/Wildfires/index.html)
 ## Target Audience
 Our target audience is people interested in environmental health, homeowners, construction planning, and environmental hazards.
 ## Functions
