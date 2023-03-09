@@ -6,14 +6,6 @@
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js"></script>
-
-    <!-- Slider -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/11.1.0/nouislider.min.css" />
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/11.1.0/nouislider.min.js'></script>
-
-    <!-- Moment.js -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
-
     <link rel="stylesheet" href="css/index.css">
   </head>
 
@@ -23,14 +15,20 @@
     </section>
     <!--Header Section-->
     <div class="header">
+      <button class="info-btn" onclick="showInfo()">Info</button>
       <div class="header-container">
         <img class='fire-icon' src='imgs/fire.svg'/></img>
         <h1>Wildfires in Washington State</h1>
       </div>
     </div>
+    <div class="info-popup">
+      <h2>Informaiton</h2>
+      <p>Welcome to our website!</p>
+      <p>Blaise and Kya, consider putting any disclaimer and tutorials here</p>
+      <p class="find-info">You can always click on "Info" on the top-left corner to find me again!</p>
+      <button class="close-btn" onclick="closeInfo()">Close</button>
+    </div>
     <div id="left-bar">
-
-      <!--For Blaise: This is where the story is supposed to be-->
       <div id="story">
         <section id="s1" class="story-sec">
           <h1 class="story-head">Large Fires in the state from 1990 to 2019</h1>

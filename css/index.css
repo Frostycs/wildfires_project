@@ -3,7 +3,11 @@ body {
   padding: 0;
 }
 
-header, .header, .header-container {
+.hidden {
+  display: none;
+}
+
+.header, .header-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,6 +26,57 @@ header, .header, .header-container {
 .header-container {
   width: auto;
   color: white;
+}
+
+.info-btn {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  border: none;
+  margin-left: -90%;
+  font-size: 20px;
+}
+
+.find-info {
+  margin-top: 40px;
+}
+
+.info-popup {
+  position: absolute;
+  width: 400px;
+  background-color: white;
+  border-radius: 2%;
+  top: 30%;
+  left: 50%;
+  margin-left: -200px;
+  padding: 20px;
+  text-align: center;
+  transform: scale(1);
+  visibility: visible;
+  transition: transform 0.4s, top 0.4s;
+}
+
+.closed-pop {
+  top: 10%;
+  left: 17%;
+  transform: translate(-150%, -50%) scale(0.1);
+  visibility: hidden;
+}
+
+.close-btn {
+  width: 30%;
+  height: 40px;
+  font-size: 22px;
+  background: rgba(87, 60, 250,1);
+  outline: none;
+  cursor: pointer;
+  font-weight: 500;
+  border-radius: 20px;
+  color: white;
+  border: none;
 }
 
 h1 {

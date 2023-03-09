@@ -4,67 +4,32 @@ Contributors: group AB5
 Edited by Frost
 */
 
+//----------------------------------Constants-----------------------------------
 // Circle radii for the acres burned map.
 const BURNED_ACRES = [1, 10, 100];
       BA_COLORS = ['rgb(255,247,188)','rgb(254,196,79)','rgb(217,95,14)'];
       BA_RADII = [5, 15, 30];
 
-//Range slider(selecting years)
-const large_fire_slider = {
-  elm: 'lrg_sld',
-  layer: 'lg-fire-polies',
-  source: 'large-fires',
-  input: true,
-  controlWidth: '400px',
-  minProperty: 'STARTDATE',
-  maxProperty: 'PERIMDATE',
-  sliderMin: '1990-01-01T00:00:00Z',
-  sliderMax: '2020-01-01T00:00:00Z',
-  filterMin: '1990-01-01T08:00:00Z',
-  filterMax: '2020-01-01T00:00:00Z',
-  propertyType: 'iso8601',
-  rangeDescriptionFormat: 'shortDate',
-  descriptionPrefix: 'Date:'
+window.addEventListener("load", init);
+
+function init() {
+  // Add scroll event listener
+  id("story").addEventListener("scroll", () => {
+    console.log('ok');
+  });
 }
 
-const pre_07_slider = {
-  elm: 'pre_sld',
-  layer: 'fires-pre-07',
-  source: 'dnr-90-07',
-  input: true,
-  controlWidth: '400px',
-  minProperty: 'START_DT',
-  maxProperty: 'START_DT',
-  sliderMin: '1990-01-01T00:00:00Z',
-  sliderMax: '2020-01-01T00:00:00Z',
-  filterMin: '1990-01-01T08:00:00Z',
-  filterMax: '2020-01-01T00:00:00Z',
-  propertyType: 'iso8601',
-  rangeDescriptionFormat: 'shortDate',
-  descriptionPrefix: 'Date:'
+let popup = q(".info-popup");
+
+function showInfo() {
+  popup.classList.remove("closed-pop");
 }
 
-const aft_07_slider = {
-  elm: 'aft_sld',
-  layer: 'fires-aft-07',
-  source: 'dnr-08-pre',
-  input: true,
-  controlWidth: '400px',
-  minProperty: 'DSCVR_DT',
-  maxProperty: 'DSCVR_DT',
-  sliderMin: '1990-01-01T00:00:00Z',
-  sliderMax: '2020-01-01T00:00:00Z',
-  filterMin: '1990-01-01T08:00:00Z',
-  filterMax: '2020-01-01T00:00:00Z',
-  propertyType: 'iso8601',
-  rangeDescriptionFormat: 'shortDate',
-  descriptionPrefix: 'Date:'
+function closeInfo() {
+  if (!popup.classList.contains("closed-pop")) {
+    popup.classList.add("closed-pop");
+  }
 }
-
-// Add scroll event listener
-id("story").addEventListener("scroll", () => {
-  console.log('ok');
-});
 
 // Setup mapbox basemap
 mapboxgl.accessToken =
@@ -72,8 +37,9 @@ mapboxgl.accessToken =
 map = new mapboxgl.Map({
   container: 'map', // container ID
   style: 'mapbox://styles/mapbox/outdoors-v12', // style URL
-  center: [-121.9, 47.70], // starting position [lng, lat]
-  zoom: 6, // starting zoom
+  // 48.02576218511146, -120.34574297329345
+  center: [-120.34, 48.02], // starting position [lng, lat]
+  zoom: 8, // starting zoom
   projection: 'mercator'
 });
 
@@ -176,9 +142,6 @@ map.on('load', () => {
   map.addLayer(pre_07);
   map.addLayer(aft_07);
 });
-
-const slider = new RangeSlider(large_fire_slider, 'bottom-right');
-map = map.addControl(slider);
 
 //-------------------------------Map Toggles------------------------------------
 // Map 1 toggle on/off
