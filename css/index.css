@@ -63,6 +63,7 @@ body {
   top: 10%;
   left: 17%;
   transform: translate(-150%, -50%) scale(0.1);
+  transition: transform 0.4s, top 0.4s;
   visibility: hidden;
 }
 
@@ -130,7 +131,57 @@ h1 {
 }
 
 .story-text {
-  font-size: 20pt;
+  font-size: 20px;
+}
+
+.map-btns, #toggle-btns, .selected {
+  height: 50px;
+}
+
+.map-btns, .selected {
+  width: 150px;
+}
+
+.map-btns {
+  cursor: pointer;
+  border: none;
+  color: rgba(152, 152, 152, 1);
+}
+
+.map-btns:hover {
+  background-color: rgb(85, 85, 85);
+  color: white;
+  transition: 0.4s;
+}
+
+.selected {
+  cursor: pointer;
+  border: none;
+  background-color: #573CFA;
+  color: white;
+}
+
+.selected:hover {
+  background-color: rgb(100, 11, 184);
+  color: white;
+  transition: 0.4s;
+}
+
+.first {
+  border-radius: 10px 0 0 10px;
+}
+
+.last {
+  border-radius: 0 10px 10px 0;
+}
+
+#toggle-btns {
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  width: auto;
+  margin-left: 50%;
 }
 
 #legend {

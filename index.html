@@ -67,20 +67,12 @@
       </div>
       <div id="legend">Legend and additional information goes here</div>
     </div>
-    <div id="map-toggle">
-      <div>
-        <input id="check1" type="checkbox" name="large-fires" value="Map 1" checked>
-        <label for="large-fires">Large Fires From 1990 to 2019</label>
-      </div>
-      <div>
-        <input id="check2" type="checkbox" name="acres-pre07" value="Map 2">
-        <label for="acres-pre07">Fire Damge between 1990 and 2007</label>
-      </div>
-      <div>
-        <input id="check3" type="checkbox" name="acres-aft07" value="Map 3">
-        <label for="acres-aft07">Fire Damge between 2008 and 2019</label>
-      </div>
+    <div id="toggle-btns">
+      <button class="selected first" onclick="toggleLayer(this, 'lg-fire-polies')">1</button>
+      <button class="map-btns" onclick="toggleLayer(this, 'fires-pre-07')">2</button>
+      <button class="map-btns last" onclick="toggleLayer(this, 'fires-aft-07')">3</button>
     </div>
+
   </body>
   <!--This script must be directly following the body tag-->
   <script src="rangeSlider.js"></script>

@@ -145,33 +145,17 @@ map.on('load', () => {
 
 //-------------------------------Map Toggles------------------------------------
 // Map 1 toggle on/off
-id("check1").addEventListener("change", (e) => {
-  if (e.target.checked) {
-    map.setLayoutProperty('lg-fire-polies', 'visibility', 'visible');
-    q('.lrg_sld-container').style.display = 'block';
-  } else {
-    map.setLayoutProperty('lg-fire-polies', 'visibility', 'none');
-    q('.lrg_sld-container').style.display = 'none';
-  }
-});
 
-// Map 2 toggle on/off
-id("check2").addEventListener("change", (e) => {
-  if (e.target.checked) {
-    map.setLayoutProperty('fires-pre-07', 'visibility', 'visible');
+function toggleLayer(ele, lay) {
+  console.log(ele.classList, lay)
+  ele.classList.toggle("selected");
+  ele.classList.toggle("map-btns");
+  if (ele.classList.contains("selected")) {
+    map.setLayoutProperty(lay, 'visibility', 'visible');
   } else {
-    map.setLayoutProperty('fires-pre-07', 'visibility', 'none');
+    map.setLayoutProperty(lay, 'visibility', 'none');
   }
-});
-
-// Map 3 toggle on/off
-id("check3").addEventListener("change", (e) => {
-  if (e.target.checked) {
-    map.setLayoutProperty('fires-aft-07', 'visibility', 'visible');
-  } else {
-    map.setLayoutProperty('fires-aft-07', 'visibility', 'none');
-  }
-})
+}
 
 /*------------------------------Helper functions------------------------------*/
 // Get id shortcut.
