@@ -9,15 +9,18 @@ Edited by Frost
 const BURNED_ACRES = [1, 10, 100];
       BA_COLORS = ['rgb(255,247,188)','rgb(254,196,79)','rgb(217,95,14)'];
       BA_RADII = [5, 15, 30];
+      FILTER_TEMPLATE = ['==', ['number', ['get', 'Year']], 0];
 
-window.addEventListener("load", init);
+//-----------------------------Page Initialization------------------------------
+/*window.addEventListener("load", init);
 
 function init() {
   // Add scroll event listener
   id("story").addEventListener("scroll", () => {
     console.log('ok');
   });
-}
+}*/
+
 
 let popup = q(".info-popup");
 
@@ -30,6 +33,8 @@ function closeInfo() {
     popup.classList.add("closed-pop");
   }
 }
+
+let showing = Array.from({length: 30}, (_, i) => i + 1990);
 
 // Setup mapbox basemap
 mapboxgl.accessToken =
@@ -49,6 +54,11 @@ let large_fires = {
   'id': 'lg-fire-polies',
   'type': 'fill',
   'source': 'large-fires',
+  'filter': [
+    'all',
+    ['==', ['number', ['get', 'Year']], 1990],
+    ['==', ['number', ['get', 'Year']], 1991]
+  ],
   'layout': {
     // Make the layer visible by default.
     'visibility': 'visible'
@@ -129,12 +139,12 @@ map.on('load', () => {
 
   map.addSource('dnr-90-07', {
     type: 'geojson',
-    data: 'assets/DNR_Fire_Statistics_1970-2007.geojson'
+    data: 'assets/90-07_DNR_Fire_Stats.geojson'
   });
 
   map.addSource('dnr-08-pre', {
     type: 'geojson',
-    data: 'assets/DNR_Fire_Statistics_2008_-_Present.geojson'
+    data: 'assets/08-pre_DNR_Fire_Stats.geojson'
   });
 
   // Default large fires map
@@ -147,7 +157,6 @@ map.on('load', () => {
 // Map 1 toggle on/off
 
 function toggleLayer(ele, lay) {
-  console.log(ele.classList, lay)
   ele.classList.toggle("selected");
   ele.classList.toggle("map-btns");
   if (ele.classList.contains("selected")) {
@@ -155,6 +164,81 @@ function toggleLayer(ele, lay) {
   } else {
     map.setLayoutProperty(lay, 'visibility', 'none');
   }
+}
+
+//--------------------------------Year Toggles----------------------------------
+function updateYrs(ele, yr) {
+  ele.classList.toggle("selected-yrs");
+  ele.classList.toggle("yr-btns");
+  if (id("all-yrs").classList.contains("selected-yrs")) {
+    id("all-yrs").classList.remove("selected-yrs");
+    id("all-yrs").classList.add("yr-btns");
+    showing = [];
+  }
+  if (id("no-yrs").classList.contains("selected-yrs")) {
+    id("no-yrs").classList.remove("selected-yrs");
+    id("no-yrs").classList.add("yr-btns");
+  }
+  if (ele.classList.contains("selected-yrs")){
+    if (!showing.includes(yr)) {
+      showing.push(yr);
+    }
+  } else {
+    if (showing.includes(yr)) {
+      showing.splice(showing.indexOf(yr), 1);
+    }
+    if (showing.length === 0) {
+      id("no-yrs").classList.add("selected-yrs");
+      id("no-yrs").classList.remove("yr-btns");
+    }
+  }
+  console.log(showing);
+  let new_filter = ["all"];
+  for (let i = 0; i < showing.length; i++) {
+    let temp = [...FILTER_TEMPLATE];
+    temp.pop();
+    temp.push(showing[i]);
+    new_filter.push(temp);
+  }
+  console.log(new_filter);
+  map.setFilter('lg-fire-polies', new_filter);
+  map.setFilter('fires-pre-07', new_filter);
+  map.setFilter('fires-aft-07', new_filter);
+}
+
+function clearAll() {
+  let btns = qsa(".selected-yrs");
+  for (const element of btns) {
+    element.classList.toggle("selected-yrs");
+    element.classList.toggle("yr-btns");
+  }
+  id("all-yrs").classList.add("selected-yrs");
+  id("all-yrs").classList.remove("yr-btns");
+  showing = Array.from({length: 30}, (_, i) => i + 1990);
+  map.setFilter('lg-fire-polies', null);
+  map.setFilter('fires-pre-07', null);
+  map.setFilter('fires-aft-07', null);
+}
+
+function addAll() {
+  let btns = qsa(".selected-yrs");
+  for (const element of btns) {
+    element.classList.toggle("selected-yrs");
+    element.classList.toggle("yr-btns");
+  }
+  id("no-yrs").classList.add("selected-yrs");
+  id("no-yrs").classList.remove("yr-btns");
+  showing = [];
+  let new_filter = ["all"];
+  for (let i = 0; i < 30; i++) {
+    let temp = [...FILTER_TEMPLATE];
+    temp.pop();
+    temp.push(i + 1990);
+    new_filter.push(temp);
+  }
+  map.setFilter('lg-fire-polies', new_filter);
+  map.setFilter('fires-pre-07', new_filter);
+  map.setFilter('fires-aft-07', new_filter);
 }
 
 /*------------------------------Helper functions------------------------------*/
@@ -166,4 +250,9 @@ function id(idName) {
 // Query shrotcut
 function q(query) {
   return document.querySelector(query);
+}
+
+// Query Select All shortcut
+function qsa(selector) {
+  return document.querySelectorAll(selector);
 }

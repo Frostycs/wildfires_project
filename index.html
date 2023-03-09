@@ -68,13 +68,51 @@
       <div id="legend">Legend and additional information goes here</div>
     </div>
     <div id="toggle-btns">
-      <button class="selected first" onclick="toggleLayer(this, 'lg-fire-polies')">1</button>
-      <button class="map-btns" onclick="toggleLayer(this, 'fires-pre-07')">2</button>
-      <button class="map-btns last" onclick="toggleLayer(this, 'fires-aft-07')">3</button>
+      <button class="selected first" onclick="toggleLayer(this, 'lg-fire-polies')">
+        Large Fires 1990-2019
+      </button>
+      <button class="map-btns" onclick="toggleLayer(this, 'fires-pre-07')">
+        Reported Damage 1990-2007
+      </button>
+      <button class="map-btns last" onclick="toggleLayer(this, 'fires-aft-07')">
+        Reported Damage 2007-2019
+      </button>
     </div>
-
+    <div id="years">
+      <button id="all-yrs" class="yr-btns selected-yrs top-left" onclick="clearAll()">All</button>
+      <button class="yr-btns" onclick="updateYrs(this, 1990)">1990</button>
+      <button class="yr-btns" onclick="updateYrs(this, 1991)">1991</button>
+      <button class="yr-btns" onclick="updateYrs(this, 1992)">1992</button>
+      <button class="yr-btns" onclick="updateYrs(this, 1993)">1993</button>
+      <button class="yr-btns" onclick="updateYrs(this, 1994)">1994</button>
+      <button class="yr-btns" onclick="updateYrs(this, 1995)">1995</button>
+      <button class="yr-btns" onclick="updateYrs(this, 1996)">1996</button>
+      <button class="yr-btns" onclick="updateYrs(this, 1997)">1997</button>
+      <button class="yr-btns" onclick="updateYrs(this, 1998)">1998</button>
+      <button class="yr-btns" onclick="updateYrs(this, 1999)">1999</button>
+      <button class="yr-btns" onclick="updateYrs(this, 2000)">2000</button>
+      <button class="yr-btns" onclick="updateYrs(this, 2001)">2001</button>
+      <button class="yr-btns" onclick="updateYrs(this, 2002)">2002</button>
+      <button class="yr-btns" onclick="updateYrs(this, 2003)">2003</button>
+      <button class="yr-btns top-right" onclick="updateYrs(this, 2004)">2004</button>
+      <button class="yr-btns bot-left" onclick="updateYrs(this, 2005)">2005</button>
+      <button class="yr-btns" onclick="updateYrs(this, 2006)">2006</button>
+      <button class="yr-btns" onclick="updateYrs(this, 2007)">2007</button>
+      <button class="yr-btns" onclick="updateYrs(this, 2008)">2008</button>
+      <button class="yr-btns" onclick="updateYrs(this, 2009)">2009</button>
+      <button class="yr-btns" onclick="updateYrs(this, 2010)">2010</button>
+      <button class="yr-btns" onclick="updateYrs(this, 2011)">2011</button>
+      <button class="yr-btns" onclick="updateYrs(this, 2012)">2012</button>
+      <button class="yr-btns" onclick="updateYrs(this, 2013)">2013</button>
+      <button class="yr-btns" onclick="updateYrs(this, 2014)">2014</button>
+      <button class="yr-btns" onclick="updateYrs(this, 2015)">2015</button>
+      <button class="yr-btns" onclick="updateYrs(this, 2016)">2016</button>
+      <button class="yr-btns" onclick="updateYrs(this, 2017)">2017</button>
+      <button class="yr-btns" onclick="updateYrs(this, 2018)">2018</button>
+      <button class="yr-btns" onclick="updateYrs(this, 2019)">2019</button>
+      <button id="no-yrs" class="yr-btns bot-right" onclick="addAll()">None</button>
+    </div>
   </body>
   <!--This script must be directly following the body tag-->
-  <script src="rangeSlider.js"></script>
   <script src="js/index.js"></script>
 </html>
