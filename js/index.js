@@ -54,11 +54,6 @@ let large_fires = {
   'id': 'lg-fire-polies',
   'type': 'fill',
   'source': 'large-fires',
-  'filter': [
-    'all',
-    ['==', ['number', ['get', 'Year']], 1990],
-    ['==', ['number', ['get', 'Year']], 1991]
-  ],
   'layout': {
     // Make the layer visible by default.
     'visibility': 'visible'
@@ -178,6 +173,15 @@ function updateYrs(ele, yr) {
   if (id("no-yrs").classList.contains("selected-yrs")) {
     id("no-yrs").classList.remove("selected-yrs");
     id("no-yrs").classList.add("yr-btns");
+    if (id("l1").classList.contains("selected")) {
+      map.setLayoutProperty('lg-fire-polies', 'visibility', 'visible');
+    }
+    if (id("l2").classList.contains("selected")) {
+      map.setLayoutProperty('fires-pre-07', 'visibility', 'visible');
+    }
+    if (id("l3").classList.contains("selected")) {
+      map.setLayoutProperty('fires-aft-07', 'visibility', 'visible');
+    }
   }
   if (ele.classList.contains("selected-yrs")){
     if (!showing.includes(yr)) {
@@ -192,15 +196,17 @@ function updateYrs(ele, yr) {
       id("no-yrs").classList.remove("yr-btns");
     }
   }
-  console.log(showing);
-  let new_filter = ["all"];
+  if (showing.length === 30) {
+    clearAll();
+    return;
+  }
+  let new_filter = ["any"];
   for (let i = 0; i < showing.length; i++) {
     let temp = [...FILTER_TEMPLATE];
     temp.pop();
     temp.push(showing[i]);
     new_filter.push(temp);
   }
-  console.log(new_filter);
   map.setFilter('lg-fire-polies', new_filter);
   map.setFilter('fires-pre-07', new_filter);
   map.setFilter('fires-aft-07', new_filter);
@@ -218,6 +224,15 @@ function clearAll() {
   map.setFilter('lg-fire-polies', null);
   map.setFilter('fires-pre-07', null);
   map.setFilter('fires-aft-07', null);
+  if (id("l1").classList.contains("selected")) {
+    map.setLayoutProperty('lg-fire-polies', 'visibility', 'visible');
+  }
+  if (id("l2").classList.contains("selected")) {
+    map.setLayoutProperty('fires-pre-07', 'visibility', 'visible');
+  }
+  if (id("l3").classList.contains("selected")) {
+    map.setLayoutProperty('fires-aft-07', 'visibility', 'visible');
+  }
 }
 
 function addAll() {
@@ -229,16 +244,9 @@ function addAll() {
   id("no-yrs").classList.add("selected-yrs");
   id("no-yrs").classList.remove("yr-btns");
   showing = [];
-  let new_filter = ["all"];
-  for (let i = 0; i < 30; i++) {
-    let temp = [...FILTER_TEMPLATE];
-    temp.pop();
-    temp.push(i + 1990);
-    new_filter.push(temp);
-  }
-  map.setFilter('lg-fire-polies', new_filter);
-  map.setFilter('fires-pre-07', new_filter);
-  map.setFilter('fires-aft-07', new_filter);
+  map.setLayoutProperty('lg-fire-polies', 'visibility', 'none');
+  map.setLayoutProperty('fires-pre-07', 'visibility', 'none');
+  map.setLayoutProperty('fires-aft-07', 'visibility', 'none');
 }
 
 /*------------------------------Helper functions------------------------------*/
