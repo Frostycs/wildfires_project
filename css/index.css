@@ -225,6 +225,29 @@ h1, h3 {
 #legend {
   margin-top: 20px;
   height: 25%;
+  
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  line-height: 18px;
+  width: 25%;
+}
+
+.legend-key {
+  display: inline-block;
+  margin-left: 20px;
+  border-radius: 20%;
+  width: 10px;
+  height: 10px;
+  margin-right: 5px;
+}
+
+b{
+  margin-left: 20px;
+}
+
+.child{
+  flex-grow: 1;
 }
 
 .story-head, .story-text {

@@ -11,6 +11,22 @@ const BURNED_ACRES = [1, 10, 100, 1000, 10000];
       BA_RADII = [5, 15, 30, 70, 110];
       FILTER_TEMPLATE = ['==', ['number', ['get', 'Year']], 0];
 
+const layers = [
+  '0-0.03',
+  '0.03-0.1',
+  '0.1-0.4',
+  '0.4-1.5',
+  '1.5 and more'
+];
+
+const colors = [
+  '#fef0d9',
+  '#fdcc8a',
+  '#fc8d59',
+  '#e34a33',
+  '#b30000',
+];
+
 //-----------------------------Page Initialization------------------------------
 /*window.addEventListener("load", init);
 
@@ -69,69 +85,77 @@ let pre_07 = {
   'id': 'fires-pre-07',
   'type': 'circle',
   'source': 'dnr-90-07',
-  'layout': {
-    'visibility': 'none'
-  },
   'paint': {
     'circle-radius': {
-      'property': 'ACRES_BURNED',
+      'base': 1.75,
       'stops': [
-        [BURNED_ACRES[0], BA_RADII[0]],
-        [BURNED_ACRES[1], BA_RADII[1]],
-        [BURNED_ACRES[2], BA_RADII[2]],
-        [BURNED_ACRES[3], BA_RADII[3]],
-        [BURNED_ACRES[4], BA_RADII[4]]
+        [12, 3],
+        [22, 180]
       ]
     },
-    'circle-color': {
-      'property': 'ACRES_BURNED',
-      'stops': [
-        [BURNED_ACRES[0], BA_COLORS[0]],
-        [BURNED_ACRES[1], BA_COLORS[1]],
-        [BURNED_ACRES[2], BA_COLORS[2]],
-        [BURNED_ACRES[3], BA_COLORS[3]],
-        [BURNED_ACRES[4], BA_COLORS[4]]
-      ]
-    },
-    'circle-stroke-color': 'black',
-    'circle-stroke-width': 0.1,
-    'circle-opacity': 0.6
+    'circle-color': [
+      'step',
+      ['get', 'ACRES_BURNED'],
+      '#fef0d9',
+      0.03,
+      '#fdcc8a',
+      0.1,
+      '#fc8d59',
+      0.4,
+      '#e34a33',
+      1.5,
+      '#b30000'
+    ]
   }
 }
+
 
 let aft_07 = {
   'id': 'fires-aft-07',
   'type': 'circle',
   'source': 'dnr-08-pre',
-  'layout': {
-    'visibility': 'none'
-  },
   'paint': {
     'circle-radius': {
-      'property': 'ACRES_BURNED',
+      'base': 1.75,
       'stops': [
-        [BURNED_ACRES[0], BA_RADII[0]],
-        [BURNED_ACRES[1], BA_RADII[1]],
-        [BURNED_ACRES[2], BA_RADII[2]],
-        [BURNED_ACRES[3], BA_RADII[3]],
-        [BURNED_ACRES[4], BA_RADII[4]]
+        [12, 3],
+        [22, 180]
       ]
     },
-    'circle-color': {
-      'property': 'ACRES_BURNED',
-      'stops': [
-        [BURNED_ACRES[0], BA_COLORS[0]],
-        [BURNED_ACRES[1], BA_COLORS[1]],
-        [BURNED_ACRES[2], BA_COLORS[2]],
-        [BURNED_ACRES[3], BA_COLORS[3]],
-        [BURNED_ACRES[4], BA_COLORS[4]]
-      ]
-    },
-    'circle-stroke-color': 'black',
-    'circle-stroke-width': 0.1,
-    'circle-opacity': 0.6
+    'circle-color': [
+      'step',
+      ['get', 'ACRES_BURNED'],
+      '#fef0d9',
+      0.03,
+      '#fdcc8a',
+      0.1,
+      '#fc8d59',
+      0.4,
+      '#e34a33',
+      1.5,
+      '#b30000'
+    ]
   }
 }
+
+const legend = document.getElementById('legend');
+// legend.innerHTML = "<b>Acres burned</b><br><br>";
+
+layers.forEach((layer, i) => {
+    const color = colors[i];
+    const item = document.createElement('div');
+    const key = document.createElement('span');
+    key.className = 'legend-key';
+    item.className = 'child';
+    key.style.backgroundColor = color;
+
+    const value = document.createElement('span');
+    value.innerHTML = `${layer}`;
+    item.appendChild(key);
+    item.appendChild(value);
+    legend.appendChild(item);
+});
+
 
 // Large fires data set
 map.on('load', () => {
