@@ -1,5 +1,4 @@
 # Wildfires In Washington State
-## *Note: this is a temporary project description and will be rewritten.
 ## Link to Project
 Click on the link below to see our project!
 
