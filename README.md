@@ -24,22 +24,24 @@ We are going to be using a geo-narrative to display wildfire data and the change
 ## Description of Thematic Layers
 1. Three maps of Washington state. One that represents big fires in Washington State between 1990-2019. A second map with a button to display the data for forest health between the years 1990-200. Our third map has a button to display the data for forest health between the years 2008-2019. We represented forest health by acres burned using these paramaters: [1, 10, 100, 1000, 10000]. This will also be represented in a legend. You can view the map layers singularly or you can display more than one map layer at the same time. 
 
-2. The user also has the option of selecting a map layer by clicking on its
+2. The acres of fires burned can be seen by clicking on the data points 
+
+3. The user also has the option of selecting a map layer by clicking on its
 corresponding story in the story box.
 
-3. A legend that effectively explains the elements displayed on the map layers
+4. A legend that effectively explains the elements displayed on the map layers.
 
-4. An element on the bottom of the map that allows users to select/filter the year(s) they wish to see for the forest health map layer(s) they have selected using a button function. 
+5. An element on the bottom of the map that allows users to select/filter the year(s) they wish to see for the forest health map layer(s) they have selected using a button function. 
 
-5. An "Information" pop-up that will explain to users how to navigate through the geo-narrative that can be re-accessed as needed by clicking the "Info" link in the far upper left corner of our map. 
+6. An "Information" pop-up that will explain to users how to navigate through the geo-narrative that can be re-accessed as needed by clicking the "Info" link in the far upper left corner of our map. 
 
-6. Data Sources Include:
+7. Data Sources Include:
 
 https://data-wadnr.opendata.arcgis.com/datasets/wadnr::forest-health-aerial-survey-1980-2019/explore?location=47.250338%2C-120.852550%2C8.03
 
 https://data-wadnr.opendata.arcgis.com/datasets/wadnr::washington-large-fires-1973-2020/explore?location=47.250616%2C-120.352519%2C7.22
 
-7. Vector layer using the forest fire location and year data as well as forest health data by year.
+8. Vector layer using the forest fire location and year data as well as forest health data by year.
 ## Story Line Draft
 The map on the left gives information about the wildfires in Washington and the map on the right gives information about the damage done to the environment. Map 1 shows large fires, map 2 shows the forest damage done between the years 1990-2007, and map 3 shows the forest damage done between 2008-2019. You can use the buttons at the bottom of the map to see how the fire damage hase changed through the years. Multimedia would include the button function and the "Info" link to re-access the Information pop-up. To go from scene to scene we would scroll through the story and use the button functions to switch between map layers and years.
 ## Applied Libraries 
