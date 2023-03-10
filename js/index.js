@@ -16,7 +16,6 @@ const BURNED_ACRES = [1, 10, 100, 1000, 10000];
       ];
       BA_RADII = [2, 5, 15, 30, 70];
       FILTER_TEMPLATE = ['==', ['number', ['get', 'Year']], 0];
-      LF_FILTER = ['>=', ['number', ['get', 'ACRES_BURNED']], 100]
       DESCRIPTIONS = [
         'Under 1',
         '1-10',
