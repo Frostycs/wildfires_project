@@ -103,7 +103,6 @@ let pre_07 = {
   }
 }
 
-
 let aft_07 = {
   'id': 'fires-aft-07',
   'type': 'circle',
@@ -329,10 +328,6 @@ function updateYrs(ele, yr) {
     temp.pop();
     temp.push(showing[i]);
     new_filter.push(temp);
-  }
-  if (map.getFilter('fires-pre-07') !== undefined ||
-      map.getFilter('fires-aft-07') !== undefined) {
-    new_filter.push([...LF_FILTER])
   }
   map.setFilter('lg-fire-polies', new_filter);
   map.setFilter('fires-pre-07', new_filter);
