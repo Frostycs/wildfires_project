@@ -2,7 +2,7 @@
 ## Link to Project
 Click on the link below to see our project!
 
-[Github Pages Visualization](https://Frostycs.github.io/wildfires_project/index.html)
+[Wildfires In Washington State Geo-Narrative](https://Frostycs.github.io/wildfires_project/index.html)
 ## Project Description
 Wildfires cause harm to the forestry and terrain of land, and with wildfire data, we can find where wildfires most occur and during which time in correlation to the health of the forests around where the wildfire starts. Using a geo-narrative to map our data would be the best way to represent our idea. We will use a geo-narrative with thematic layers to show the change in wildfires over time.
 ## Project Goal
@@ -25,15 +25,29 @@ We are going to be using a geo-narrative to display wildfire data and the change
 ## Base Map
   - Monochrome base map of Washington State
 ## Description of Thematic Layers
-1. Three maps of Washington state. One that represents big fires in Washington State between 1990-2019. A second map with a button to display the data for forest health between the years 1990-200. Our third map has a button to display the data for forest health between the years 2008-2019. We represented forest health by acres burned using these paramaters: [1, 10, 100]. This will also be represented in the legend. You can view the map layers singularly or you can display more than one map layer at the same time. We added another element on the bottom of the map that allows users to select/filter the year(s) they wish to see for the forest health map layer(s) they have selected. 
+1. Three maps of Washington state. One that represents big fires in Washington State between 1990-2019. A second map with a button to display the data for forest health between the years 1990-200. Our third map has a button to display the data for forest health between the years 2008-2019. We represented forest health by acres burned using these paramaters: [1, 10, 100]. This will also be represented in a legend. You can view the map layers singularly or you can display more than one map layer at the same time. 
 
-We also included an Information pop-up that will explain to users how to navigate through the geo-narrative that can be re-accessed as needed by clicking the "Info" link in the far upper left corner of our map. 
+ 2. A legend that effectively explains the elements displayed on the map layers
 
-3. Data Sources Include:
+3. An element on the bottom of the map that allows users to select/filter the year(s) they wish to see for the forest health map layer(s) they have selected using a button function. 
+
+4. An "Information" pop-up that will explain to users how to navigate through the geo-narrative that can be re-accessed as needed by clicking the "Info" link in the far upper left corner of our map. 
+
+5. Data Sources Include:
 https://data-wadnr.opendata.arcgis.com/datasets/wadnr::forest-health-aerial-survey-1980-2019/explore?location=47.250338%2C-120.852550%2C8.03
 https://data-wadnr.opendata.arcgis.com/datasets/wadnr::washington-large-fires-1973-2020/explore?location=47.250616%2C-120.352519%2C7.22
-3. Vector layer using the forest fire location and year data as well as forest health data by year.
+
+6. Vector layer using the forest fire location and year data as well as forest health data by year.
 ## Story Line Draft
 The map on the left gives information about the wildfires in Washington and the map on the right gives information about the damage done to the environment. Map 1 shows large fires, map 2 shows the forest damage done between the years 1990-2007, and map 3 shows the forest damage done between 2008-2019. You can use the buttons at the bottom of the map to see how the fire damage hase changed through the years. Multimedia would include the button function and the "Info" link to re-access the Information pop-up. To go from scene to scene we would scroll through the story and use the button functions to switch between map layers and years.
+## Applied Libraries 
+Libraries in use include: mapbox-gl-js
+## Web Services In Use 
+Web services in use include: github
+## Acknowledgement
+Things we would like to further explore that remain unanswered after our project include:
+- If the forest health of these burned areas has improved or worsened over time. 
+- How these fires have changed the terrain of these areas
+- How wildlife and people have been affected and if they can still reside in these areas.
 ## Contributors
 Blaise Hessels, Kya Rice, David Ng, Frost Song, Qirun Jiao
