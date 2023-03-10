@@ -22,7 +22,7 @@ We are going to be using a geo-narrative to display wildfire data and the change
 ## Base Map
   - Monochrome base map of Washington State
 ## Description of Thematic Layers
-1. Three maps of Washington state. One that represents big fires in Washington State between 1990-2019. A second map with a button to display the data for forest health between the years 1990-200. Our third map has a button to display the data for forest health between the years 2008-2019. We represented forest health by acres burned using these paramaters: [1, 10, 100]. This will also be represented in a legend. You can view the map layers singularly or you can display more than one map layer at the same time. 
+1. Three maps of Washington state. One that represents big fires in Washington State between 1990-2019. A second map with a button to display the data for forest health between the years 1990-200. Our third map has a button to display the data for forest health between the years 2008-2019. We represented forest health by acres burned using these paramaters: [1, 10, 100, 1000, 10000]. This will also be represented in a legend. You can view the map layers singularly or you can display more than one map layer at the same time. 
 
 2. The user also has the option of selecting a map layer by clicking on its
 corresponding story in the story box.
