@@ -16,7 +16,7 @@ const layers = [
   '0.03-0.1',
   '0.1-0.4',
   '0.4-1.5',
-  '1.5 and more'
+  '1.5 +'
 ];
 
 const colors = [
