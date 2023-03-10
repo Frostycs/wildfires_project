@@ -23,7 +23,7 @@ We are going to be using a geo-narrative to display wildfire data and the change
   - Zoom level: 8
 ## Base Map
   - Monochrome base map of Washington State
-## Discalimer
+## Disclaimer
 We had to use two different data sets for "Reported Forest Damage". This is because after 2007, the Washington State Department of Natural Resource GIS Open Data center changed the way they were collecting and reporting their data. 
 ## Description of Thematic Layers
 1. Three maps of Washington state. One that represents big fires in Washington State between 1990-2019. A second map with a button to display the data for forest health between the years 1990-2007. Our third map also has a button to display the data for forest health between the years 2008-2019. We represented forest health by acres burned using these paramaters: [1, 10, 100, 1000, 10000]. This will also be represented in a legend. You can view the map layers singularly or you can display more than one map layer at the same time. 
