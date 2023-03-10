@@ -3,8 +3,10 @@
 Click on the link below to see our project!
 
 [Github Pages Visualization](https://Frostycs.github.io/wildfires_project/index.html)
-## Project Proposal
-Wildfire causes harm to buildings around them from the spread, and with wildfire data, we can find where wildfires most occur and during which time in correlation to the health of the forests around where the wildfire starts, Using a geo-narrative to map our data would be the best way to represent our idea. We will use a geo-narrative with thematic layers to show the change in wildfires over time.
+## Project Description
+Wildfires cause harm to the forestry and terrain of land, and with wildfire data, we can find where wildfires most occur and during which time in correlation to the health of the forests around where the wildfire starts. Using a geo-narrative to map our data would be the best way to represent our idea. We will use a geo-narrative with thematic layers to show the change in wildfires over time.
+## Project Goal
+Our groups goal for this project is to make an easy to navigate, use, and understand geo-narrative that represents how wildfires in Washington State have affected the forest health negatively between 1990-2019. We also wanted to learn for ourselves how these wildfires have affected the state. It was also important for us to represent and explain the trends we saw in the story map section of our geo-narrative so users can easily understand what the map is representing.
 ### Here is a sketch-up of our project idea
 ![Prototype #1 Map](/imgs/Prototype%231.jpg)
 ### Revised Design of the Project
@@ -14,23 +16,24 @@ Wildfire causes harm to buildings around them from the spread, and with wildfire
 ## Target Audience
 Our target audience is people interested in environmental health, homeowners, construction planning, and environmental hazards.
 ## Functions
-We are going to be using a geo-narrative to display wildfire data and the changes in these fires over time, to reveal common locations of fires and how much or less the fire has spread throughout the years. We will do this by using interactive elements on maps and multiple maps on different periods with the same variable of data.
+We are going to be using a geo-narrative to display wildfire data and the changes in these wildfires over time, to reveal common locations of wildfires and if the frequency of these wildfires is increasing or decreasing throughout the years of 1990-2019. We will do this by using interactive elements on maps and multiple maps representing different periods of time with the same variable of data.
 ## Libraries
 ## Map Projection
   - Mercator projection
-  - Center: State of Washington
+  - Center: State of Washington [-120.34, 48.02]
   - Zoom level: 8
 ## Base Map
   - Monochrome base map of Washington State
 ## Description of Thematic Layers
-1. Two maps of Washington state; one with a sidebar of forest health between the years 2010-2019; a second map with a sidebar of forest fires
-between the years 2010-2019 with a hover interactive element that enables the user to hover over different areas of Washington and see when/where
-different forest fires have occurred.
-2. Data Sources Include:
+1. Three maps of Washington state. One that represents big fires in Washington State between 1990-2019. A second map with a button to display the data for forest health between the years 1990-200. Our third map has a button to display the data for forest health between the years 2008-2019. We represented forest health by acres burned using these paramaters: [1, 10, 100]. This will also be represented in the legend. You can view the map layers singularly or you can display more than one map layer at the same time. We added another element on the bottom of the map that allows users to select/filter the year(s) they wish to see for the forest health map layer(s) they have selected. 
+
+We also included an Information pop-up that will explain to users how to navigate through the geo-narrative that can be re-accessed as needed by clicking the "Info" link in the far upper left corner of our map. 
+
+3. Data Sources Include:
 https://data-wadnr.opendata.arcgis.com/datasets/wadnr::forest-health-aerial-survey-1980-2019/explore?location=47.250338%2C-120.852550%2C8.03
 https://data-wadnr.opendata.arcgis.com/datasets/wadnr::washington-large-fires-1973-2020/explore?location=47.250616%2C-120.352519%2C7.22
-3. Vector layer using the forest fire location and year data as well as forest health data by year. We will include a hover interactive function as explained in bullet point 2 under the description of thematic layers.
+3. Vector layer using the forest fire location and year data as well as forest health data by year.
 ## Story Line Draft
-The map on the left gives information about the wildfires in Washington and the map on the right gives information about the damage done to both the environment and properties. Map 1 shows the fires and map 2 shows the damage done. You can use a slider at the bottom of the map to see how the fire and damage have changed through the years. Depending on which map you are looking at, the legend and thematic elements will display different information. Multimedia would include the sidebar function and any charts we see fit to be added as we develop the project. To go from scene to scene we could use a toggle function and the slider function.
+The map on the left gives information about the wildfires in Washington and the map on the right gives information about the damage done to the environment. Map 1 shows large fires, map 2 shows the forest damage done between the years 1990-2007, and map 3 shows the forest damage done between 2008-2019. You can use the buttons at the bottom of the map to see how the fire damage hase changed through the years. Multimedia would include the button function and the "Info" link to re-access the Information pop-up. To go from scene to scene we would scroll through the story and use the button functions to switch between map layers and years.
 ## Contributors
 Blaise Hessels, Kya Rice, David Ng, Frost Song, Qirun Jiao
