@@ -148,6 +148,27 @@ map.on('load', () => {
   map.addLayer(aft_07);
 });
 
+function playSection1(ele) {
+  checkLayer(id('l2'), 'fires-pre-07');
+  checkLayer(id('l3'), 'fires-aft-07');
+  addAll();
+  temp_btns = qsa(".yr-btns:not(#all-yrs)");
+  map.flyTo({
+    //47.74932555890664, -120.93211194610683
+    center: [-120.93, 47.75],
+    zoom: 7
+  });
+  let i = 0;
+  setTimeout(function run() {
+    console.log(i);
+    updateYrs(temp_btns[i], parseInt(temp_btns[i].innerText));
+    i++;
+    if (i < 30) {
+      setTimeout(run, 300);
+    }
+  }, 300);
+}
+
 //-------------------------------Map Toggles------------------------------------
 // Map 1 toggle on/off
 
@@ -263,4 +284,10 @@ function q(query) {
 // Query Select All shortcut
 function qsa(selector) {
   return document.querySelectorAll(selector);
+}
+
+function checkLayer(ol, lay) {
+  if (ol.classList.contains("selected")) {
+    toggleLayer(ol, lay);
+  }
 }

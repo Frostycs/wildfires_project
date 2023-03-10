@@ -1,3 +1,7 @@
+* {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -49,7 +53,7 @@ body {
   width: 400px;
   background-color: white;
   border-radius: 2%;
-  top: 30%;
+  top: 25%;
   left: 50%;
   margin-left: -200px;
   padding: 20px;
@@ -81,6 +85,10 @@ body {
 }
 
 h1 {
+  font-size: 25px;
+}
+
+h1, h3 {
   text-align: center;
 }
 
@@ -114,7 +122,6 @@ h1 {
   display: flex;
   width: 100%;
   background-color: white;
-  opacity: 0.8;
   border-radius: 2%;
 }
 
@@ -126,12 +133,13 @@ h1 {
   overflow-x: 0;
 }
 
-.story-sec {
+.story-sec, .intro-sec {
   width: 100%;
 }
 
 .story-text {
-  font-size: 20px;
+  font-size: 16px;
+  text-align: center;
 }
 
 .map-btns, #toggle-btns, .selected {
@@ -148,10 +156,14 @@ h1 {
   color: rgba(152, 152, 152, 1);
 }
 
-.map-btns:hover, .yr-btns:hover {
+.map-btns:hover, .yr-btns:hover, .story-sec:hover {
   background-color: rgb(85, 85, 85);
   color: white;
   transition: 0.4s;
+}
+
+.story-sec:hover {
+  cursor: pointer;
 }
 
 .selected, .selected-yrs {
@@ -167,12 +179,12 @@ h1 {
   transition: 0.4s;
 }
 
-.yr-btns, #years, .selected-yrs {
+.yr-btns, .selected-yrs {
   height: 40px;
 }
 
 .yr-btns, .selected-yrs {
-  width: 75px;
+  width: 60px;
 }
 
 .first {
@@ -196,9 +208,10 @@ h1 {
 }
 
 #years {
-  right: 1%;
-  top: 88%;
-  width: 65%;
+  left: 35%;
+  top: 85%;
+  width: 960px;
+  height: 80px;
 }
 
 #legend {
@@ -210,7 +223,7 @@ h1 {
   width: 100%;
 }
 
-.story-sec {
+.story-sec, .intro-sec {
   margin-top: 10px;
   margin-left: 20px;
   margin-right: 20px;
@@ -224,18 +237,6 @@ h1 {
   max-width: 270px;
   max-height: 180px;
   margin-left: 85%;
-}
-
-/*slider*/
-.slider-control-container {
-  padding: 5px;
-}
-
-.slider-control-range-display {
-  font-size: 18px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  font-weight: 700;
 }
 
 .top-left {
