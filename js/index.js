@@ -7,36 +7,25 @@ Edited by Frost
 //----------------------------------Constants-----------------------------------
 // Circle radii for the acres burned map.
 const BURNED_ACRES = [1, 10, 100, 1000, 10000];
-      BA_COLORS = ['rgb(255,255,178)','rgb(254,204,92)','rgb(253,141,60)','rgb(240,59,32)','rgb(189,0,38)'];
-      BA_RADII = [5, 15, 30, 70, 110];
+      BA_COLORS = [
+        '#fef0d9',
+        '#fdcc8a',
+        '#fc8d59',
+        '#e34a33',
+        '#b30000'
+      ];
+      BA_RADII = [2, 5, 15, 30, 70];
       FILTER_TEMPLATE = ['==', ['number', ['get', 'Year']], 0];
-
-const layers = [
-  '0-0.03',
-  '0.03-0.1',
-  '0.1-0.4',
-  '0.4-1.5',
-  '1.5 and more'
-];
-
-const colors = [
-  '#fef0d9',
-  '#fdcc8a',
-  '#fc8d59',
-  '#e34a33',
-  '#b30000',
-];
+      LF_FILTER = ['>=', ['number', ['get', 'ACRES_BURNED']], 100]
+      DESCRIPTIONS = [
+        'Under 1',
+        '1-10',
+        '10-100',
+        '100-1000',
+        '1000-10000'
+      ];
 
 //-----------------------------Page Initialization------------------------------
-/*window.addEventListener("load", init);
-
-function init() {
-  // Add scroll event listener
-  id("story").addEventListener("scroll", () => {
-    console.log('ok');
-  });
-}*/
-
 
 let popup = q(".info-popup");
 
@@ -85,27 +74,33 @@ let pre_07 = {
   'id': 'fires-pre-07',
   'type': 'circle',
   'source': 'dnr-90-07',
+  'layout': {
+    'visibility': 'none'
+  },
   'paint': {
     'circle-radius': {
-      'base': 1.75,
+      'property': 'ACRES_BURNED',
       'stops': [
-        [12, 3],
-        [22, 180]
+        [BURNED_ACRES[0], BA_RADII[0]],
+        [BURNED_ACRES[1], BA_RADII[1]],
+        [BURNED_ACRES[2], BA_RADII[2]],
+        [BURNED_ACRES[3], BA_RADII[3]],
+        [BURNED_ACRES[4], BA_RADII[4]]
       ]
     },
-    'circle-color': [
-      'step',
-      ['get', 'ACRES_BURNED'],
-      '#fef0d9',
-      0.03,
-      '#fdcc8a',
-      0.1,
-      '#fc8d59',
-      0.4,
-      '#e34a33',
-      1.5,
-      '#b30000'
-    ]
+    'circle-color': {
+      'property': 'ACRES_BURNED',
+      'stops': [
+        [BURNED_ACRES[0], BA_COLORS[0]],
+        [BURNED_ACRES[1], BA_COLORS[1]],
+        [BURNED_ACRES[2], BA_COLORS[2]],
+        [BURNED_ACRES[3], BA_COLORS[3]],
+        [BURNED_ACRES[4], BA_COLORS[4]]
+      ]
+    },
+    'circle-stroke-color': 'black',
+    'circle-stroke-width': 0.1,
+    'circle-opacity': 0.6
   }
 }
 
@@ -114,35 +109,38 @@ let aft_07 = {
   'id': 'fires-aft-07',
   'type': 'circle',
   'source': 'dnr-08-pre',
+  'layout': {
+    'visibility': 'none'
+  },
   'paint': {
     'circle-radius': {
-      'base': 1.75,
+      'property': 'ACRES_BURNED',
       'stops': [
-        [12, 3],
-        [22, 180]
+        [BURNED_ACRES[0], BA_RADII[0]],
+        [BURNED_ACRES[1], BA_RADII[1]],
+        [BURNED_ACRES[2], BA_RADII[2]],
+        [BURNED_ACRES[3], BA_RADII[3]],
+        [BURNED_ACRES[4], BA_RADII[4]]
       ]
     },
-    'circle-color': [
-      'step',
-      ['get', 'ACRES_BURNED'],
-      '#fef0d9',
-      0.03,
-      '#fdcc8a',
-      0.1,
-      '#fc8d59',
-      0.4,
-      '#e34a33',
-      1.5,
-      '#b30000'
-    ]
+    'circle-color': {
+      'property': 'ACRES_BURNED',
+      'stops': [
+        [BURNED_ACRES[0], BA_COLORS[0]],
+        [BURNED_ACRES[1], BA_COLORS[1]],
+        [BURNED_ACRES[2], BA_COLORS[2]],
+        [BURNED_ACRES[3], BA_COLORS[3]],
+        [BURNED_ACRES[4], BA_COLORS[4]]
+      ]
+    },
+    'circle-stroke-color': 'black',
+    'circle-stroke-width': 0.1,
+    'circle-opacity': 0.6
   }
 }
 
-const legend = document.getElementById('legend');
-// legend.innerHTML = "<b>Acres burned</b><br><br>";
-
-layers.forEach((layer, i) => {
-    const color = colors[i];
+DESCRIPTIONS.forEach((layer, i) => {
+    const color = BA_COLORS[i];
     const item = document.createElement('div');
     const key = document.createElement('span');
     key.className = 'legend-key';
@@ -201,6 +199,7 @@ map.on('click', 'fires-aft-07', (e) => {
       .addTo(map);
 });
 
+//-------------------------------Animations-------------------------------------
 function playSection1() {
   if (!id("l1").classList.contains("selected")) {
     toggleLayer(id("l1"), 'lg-fire-polies');
@@ -331,6 +330,10 @@ function updateYrs(ele, yr) {
     temp.pop();
     temp.push(showing[i]);
     new_filter.push(temp);
+  }
+  if (map.getFilter('fires-pre-07') !== undefined ||
+      map.getFilter('fires-aft-07') !== undefined) {
+    new_filter.push([...LF_FILTER])
   }
   map.setFilter('lg-fire-polies', new_filter);
   map.setFilter('fires-pre-07', new_filter);
