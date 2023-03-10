@@ -6,9 +6,9 @@ Edited by Frost
 
 //----------------------------------Constants-----------------------------------
 // Circle radii for the acres burned map.
-const BURNED_ACRES = [1, 10, 100];
-      BA_COLORS = ['rgb(255,247,188)','rgb(254,196,79)','rgb(217,95,14)'];
-      BA_RADII = [5, 15, 30];
+const BURNED_ACRES = [1, 10, 100, 1000, 10000];
+      BA_COLORS = ['rgb(255,255,178)','rgb(254,204,92)','rgb(253,141,60)','rgb(240,59,32)','rgb(189,0,38)'];
+      BA_RADII = [5, 15, 30, 70, 110];
       FILTER_TEMPLATE = ['==', ['number', ['get', 'Year']], 0];
 
 //-----------------------------Page Initialization------------------------------
@@ -78,19 +78,23 @@ let pre_07 = {
       'stops': [
         [BURNED_ACRES[0], BA_RADII[0]],
         [BURNED_ACRES[1], BA_RADII[1]],
-        [BURNED_ACRES[2], BA_RADII[2]]
+        [BURNED_ACRES[2], BA_RADII[2]],
+        [BURNED_ACRES[3], BA_RADII[3]],
+        [BURNED_ACRES[4], BA_RADII[4]]
       ]
     },
     'circle-color': {
       'property': 'ACRES_BURNED',
       'stops': [
         [BURNED_ACRES[0], BA_COLORS[0]],
-      [BURNED_ACRES[1], BA_COLORS[1]],
-      [BURNED_ACRES[2], BA_COLORS[2]]
+        [BURNED_ACRES[1], BA_COLORS[1]],
+        [BURNED_ACRES[2], BA_COLORS[2]],
+        [BURNED_ACRES[3], BA_COLORS[3]],
+        [BURNED_ACRES[4], BA_COLORS[4]]
       ]
     },
     'circle-stroke-color': 'black',
-    'circle-stroke-width': 1,
+    'circle-stroke-width': 0.1,
     'circle-opacity': 0.6
   }
 }
@@ -108,19 +112,23 @@ let aft_07 = {
       'stops': [
         [BURNED_ACRES[0], BA_RADII[0]],
         [BURNED_ACRES[1], BA_RADII[1]],
-        [BURNED_ACRES[2], BA_RADII[2]]
+        [BURNED_ACRES[2], BA_RADII[2]],
+        [BURNED_ACRES[3], BA_RADII[3]],
+        [BURNED_ACRES[4], BA_RADII[4]]
       ]
     },
     'circle-color': {
       'property': 'ACRES_BURNED',
       'stops': [
         [BURNED_ACRES[0], BA_COLORS[0]],
-      [BURNED_ACRES[1], BA_COLORS[1]],
-      [BURNED_ACRES[2], BA_COLORS[2]]
+        [BURNED_ACRES[1], BA_COLORS[1]],
+        [BURNED_ACRES[2], BA_COLORS[2]],
+        [BURNED_ACRES[3], BA_COLORS[3]],
+        [BURNED_ACRES[4], BA_COLORS[4]]
       ]
     },
     'circle-stroke-color': 'black',
-    'circle-stroke-width': 1,
+    'circle-stroke-width': 0.1,
     'circle-opacity': 0.6
   }
 }
@@ -146,6 +154,27 @@ map.on('load', () => {
   map.addLayer(large_fires);
   map.addLayer(pre_07);
   map.addLayer(aft_07);
+});
+
+map.on('click', 'fires-pre-07', (e) => {
+  new mapboxgl.Popup()
+      .setLngLat(e.features[0].geometry.coordinates)
+      .setHTML(`<ul>
+              <li><strong>Acres Burned:</strong> ${e.features[0].properties.ACRES_BURNED}</li>
+              <li><strong>Year:</strong> ${e.features[0].properties.Year}</li>
+              </ul>`)
+      .addTo(map);
+});
+
+map.on('click', 'fires-aft-07', (e) => {
+  new mapboxgl.Popup()
+      .setLngLat(e.features[0].geometry.coordinates)
+      .setHTML(`<ul>
+              <li><strong>Acres Burned:</strong> ${e.features[0].properties.ACRES_BURNED}</li>
+              <li><strong>Year:</strong> ${e.features[0].properties.Year}</li>
+              <li><strong>Cause:</strong> ${e.features[0].properties.FIREGCAUSE_LABEL_NM}</li>
+              </ul>`)
+      .addTo(map);
 });
 
 function playSection1() {

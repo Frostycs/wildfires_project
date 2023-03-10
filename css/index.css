@@ -32,6 +32,10 @@ body {
   color: white;
 }
 
+ul {
+  margin-right: 30px;
+}
+
 .info-btn {
   position: absolute;
   width: 40px;
