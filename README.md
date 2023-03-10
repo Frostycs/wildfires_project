@@ -7,12 +7,12 @@ Click on the link below to see our project!
 Wildfires cause harm to the forestry and terrain of land, and with wildfire data, we can find where wildfires most occur and during which time in correlation to the health of the forests around where the wildfire starts. Using a geo-narrative to map our data would be the best way to represent our idea. We will use a geo-narrative with thematic layers to show the change in wildfires over time.
 ## Project Goal
 Our groups goal for this project is to make an easy to navigate, use, and understand geo-narrative that represents how wildfires in Washington State have affected the forest health negatively between 1990-2019. We also wanted to learn for ourselves how these wildfires have affected the state. It was also important for us to represent and explain the trends we saw in the story map section of our geo-narrative so users can easily understand what the map is representing.
-### Here is a sketch-up of our project idea
-![Prototype #1 Map](/imgs/Prototype%231.jpg)
-### Revised Design of the Project
-![Revised Design](/imgs/design_revised.PNG)
-### First Draft of the Project
-![Revised Design](/imgs/first_draft.PNG)
+### Large Fires Map
+![Large Fires Map](/imgs/largefires.png)
+### Reported Fire Damage 1990-2007
+![Reported Fire Damage 1990-2007](/imgs/1990-2007.png)
+### Reported Fire Damage 2008-2019 With The Year 2010 Selected To Show Button Useage
+![Reported Fire Damage 2008-2019](/imgs/2010.png)
 ## Target Audience
 Our target audience is people interested in environmental health, homeowners, construction planning, and environmental hazards.
 ## Functions
