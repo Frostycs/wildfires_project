@@ -34,6 +34,7 @@ We are going to be using a geo-narrative to display wildfire data and the change
 4. An "Information" pop-up that will explain to users how to navigate through the geo-narrative that can be re-accessed as needed by clicking the "Info" link in the far upper left corner of our map. 
 
 5. Data Sources Include:
+
 https://data-wadnr.opendata.arcgis.com/datasets/wadnr::forest-health-aerial-survey-1980-2019/explore?location=47.250338%2C-120.852550%2C8.03
 
 https://data-wadnr.opendata.arcgis.com/datasets/wadnr::washington-large-fires-1973-2020/explore?location=47.250616%2C-120.352519%2C7.22
