@@ -50,6 +50,7 @@ body {
 
 .info-popup {
   position: absolute;
+  max-width: 500px;
   width: 400px;
   background-color: white;
   border-radius: 2%;
@@ -129,6 +130,9 @@ h1, h3 {
   height: 70%;
   display: flex;
   flex-wrap: wrap;
+}
+
+.info-popup, #story {
   overflow-y: auto;
   overflow-x: 0;
 }
