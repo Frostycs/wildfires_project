@@ -35,6 +35,7 @@ We are going to be using a geo-narrative to display wildfire data and the change
 
 5. Data Sources Include:
 https://data-wadnr.opendata.arcgis.com/datasets/wadnr::forest-health-aerial-survey-1980-2019/explore?location=47.250338%2C-120.852550%2C8.03
+
 https://data-wadnr.opendata.arcgis.com/datasets/wadnr::washington-large-fires-1973-2020/explore?location=47.250616%2C-120.352519%2C7.22
 
 6. Vector layer using the forest fire location and year data as well as forest health data by year.
