@@ -41,7 +41,7 @@ mapboxgl.accessToken =
   'pk.eyJ1IjoiZnJvc3R5Y3MiLCJhIjoiY2xlbTluMXJ2MHp1dzN4bWxlcmRqcGM2eCJ9.e2bM-nuMkNqXTGDvasGjyQ';
 map = new mapboxgl.Map({
   container: 'map', // container ID
-  style: 'mapbox://styles/mapbox/outdoors-v12', // style URL
+  style: 'mapbox://styles/mapbox/dark-v11', // style URL
   // 48.02576218511146, -120.34574297329345
   center: [-120.34, 48.02], // starting position [lng, lat]
   zoom: 8, // starting zoom
@@ -59,7 +59,7 @@ let large_fires = {
     'visibility': 'visible'
   },
   'paint': {
-    'fill-color': '#fc5603',
+    'fill-color': '#00FF00',
     'fill-opacity': 0.4
   }
 };
@@ -148,17 +148,68 @@ map.on('load', () => {
   map.addLayer(aft_07);
 });
 
-function playSection1(ele) {
+function playSection1() {
+  if (!id("l1").classList.contains("selected")) {
+    toggleLayer(id("l1"), 'lg-fire-polies');
+  }
   checkLayer(id('l2'), 'fires-pre-07');
   checkLayer(id('l3'), 'fires-aft-07');
   addAll();
   temp_btns = qsa(".yr-btns:not(#all-yrs)");
   map.flyTo({
-    //47.74932555890664, -120.93211194610683
-    center: [-120.93, 47.75],
-    zoom: 7
+    //47.03068646971769, -121.49784562530579
+    center: [-121.50, 47.4],
+    zoom: 6.3
   });
   let i = 0;
+  setTimeout(function run() {
+    console.log(i);
+    updateYrs(temp_btns[i], parseInt(temp_btns[i].innerText));
+    i++;
+    if (i < 30) {
+      setTimeout(run, 300);
+    }
+  }, 300);
+}
+
+function playSection2() {
+  if (!id("l2").classList.contains("selected")) {
+    toggleLayer(id("l2"), 'fires-pre-07');
+  }
+  checkLayer(id('l1'), 'lg-fire-polies');
+  checkLayer(id('l3'), 'fires-aft-07');
+  addAll();
+  temp_btns = qsa(".yr-btns:not(#all-yrs)");
+  map.flyTo({
+    //47.03068646971769, -121.49784562530579
+    center: [-121.50, 47.4],
+    zoom: 6.3
+  });
+  let i = 0;
+  setTimeout(function run() {
+    console.log(i);
+    updateYrs(temp_btns[i], parseInt(temp_btns[i].innerText));
+    i++;
+    if (i < 18) {
+      setTimeout(run, 300);
+    }
+  }, 300);
+}
+
+function playSection3() {
+  if (!id("l3").classList.contains("selected")) {
+    toggleLayer(id("l3"), 'fires-aft-07');
+  }
+  checkLayer(id('l1'), 'lg-fire-polies');
+  checkLayer(id('l2'), 'fires-pre-07');
+  addAll();
+  temp_btns = qsa(".yr-btns:not(#all-yrs)");
+  map.flyTo({
+    //47.03068646971769, -121.49784562530579
+    center: [-121.50, 47.4],
+    zoom: 6.3
+  });
+  let i = 18;
   setTimeout(function run() {
     console.log(i);
     updateYrs(temp_btns[i], parseInt(temp_btns[i].innerText));
