@@ -63,7 +63,7 @@ let large_fires = {
     'visibility': 'visible'
   },
   'paint': {
-    'fill-color': '#00FF00',
+    'fill-color': '#FFFF00',
     'fill-opacity': 0.4
   }
 };
