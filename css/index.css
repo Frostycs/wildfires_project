@@ -37,15 +37,14 @@ ul {
 }
 
 .info-btn {
-  position: absolute;
   width: 40px;
   height: 40px;
   background-color: transparent;
   color: white;
   cursor: pointer;
   border: none;
-  margin-left: -90%;
   font-size: 20px;
+  margin: 20px;
 }
 
 .find-info {
@@ -213,6 +212,16 @@ h1, h3 {
 
 #toggle-btns {
   margin-left: 50%;
+}
+
+.links {
+  position: absolute;
+  left: 40px;
+}
+
+a, a:visited {
+  color: white;
+  font-size: 20px;
 }
 
 #years {
