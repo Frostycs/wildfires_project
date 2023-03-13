@@ -78,6 +78,14 @@ ul {
 .close-btn {
   width: 30%;
   height: 40px;
+}
+
+.git-btn {
+  width: 90px;
+  height: 35px;
+}
+
+.close-btn, .git-btn {
   font-size: 22px;
   background: rgba(87, 60, 250,1);
   outline: none;
@@ -224,6 +232,8 @@ a, a:visited {
   font-size: 20px;
 }
 
+
+
 #years {
   left: 35%;
   top: 85%;
@@ -232,6 +242,7 @@ a, a:visited {
 }
 
 #legend {
+  display: flex;
   margin-top: 20px;
   height: 25%;
   padding-top: 10px;
@@ -239,7 +250,15 @@ a, a:visited {
   flex-direction: column;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   line-height: 18px;
-  width: 25%;
+  width: 30%;
+}
+
+.dot {
+  display: inline-block;
+  margin-top: 5px;
+  border: 1px solid black;
+  border-radius: 50%;
+  opacity: 0.6;
 }
 
 .legend-key {
@@ -252,7 +271,8 @@ a, a:visited {
 }
 
 b{
-  margin-left: 20px;
+  text-align: center;
+  margin-bottom: 5px;
 }
 
 .child{

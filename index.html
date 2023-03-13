@@ -32,7 +32,7 @@
       <p>*Click on the buttons in the bar up top to switch between layers</p>
       <p>*The buttons at the bottom will help you select specific years, all of them or none of them</p>
       <p>*You can click on the story sections to observe the trend</p>
-      <p>*Click on individual dots to see more information</p>
+      <p>*Click on individual dots to see more, however, some of them might not have any information</p>
       <p><strong>*IT IS RECOMMENDED THAT YOU SELECT 1 OR 2 YEARS AT A TIME</strong></p>
       <p class="find-info">You can always click on "Info" on the top-left corner to find me again!</p>
       <button class="close-btn" onclick="closeInfo()">Close</button>
@@ -41,16 +41,28 @@
       <div id="story">
         <section class="intro-sec">
         <h1 class="story-head">History of Wildfires in Washington State</h1>
+          <p class="story-text"> <strong>Reading through this section will help you better
+            understand the detailed functions of this site.</strong>
+          </p>
           <p class="story-text">This project contains visualizations of 3 different data sets which allows you to
             understand more about the history of wildfires in the state. The visualizations of the
             datasets will be called "layers", and each of them will be explained below. You can
-            click on each section to see the visualizations. It is recommended that you only pick
-            a few years at the same time as the data points are closely clustered.
+            click on each section to see the visualizations. The layer called "Large Fires" illustrates
+            areas burned by large wildfires, and the other 2 layers contain reported fire damage
+            from the Washington State Department of Natural Resources. Please note, the reported
+            damages to forests are not necessarily caused by wildfires, and you can click on
+            any of the dots to see more information about them. We have decided to include all data
+            points to give you some freedom in examining the relationship between the datasets.
+          </p>
+          <p class="story-text">If you want to see some examples, you find them on our github page:
+            <button class="git-btn">
+              <a id="git-link" href='https://github.com/Frostycs/wildfires_project'>Github</a>
+            </button>
           </p>
         </section>
         <section id="s1" class="story-sec" onclick="playSection1()">
           <h3 class="story-head">Large Fires In The state From 1990 To 2019</h3>
-          <p class="story-text">    The Washington State large fires data set is acquired from WADNR
+          <p class="story-text">The Washington State large fires data set is acquired from WADNR
             collected by Washington State Department of Natural Resources.You can interact with the
             buttons to see the data points recorded in this specific data set, or compare with others.
             The green areas represent areas that were affected by large wildfires.
@@ -90,7 +102,7 @@
           </p>
         </section>
       </div>
-      <div id="legend"><b>Acres Burned</b><br><br></div>
+      <div id="legend"><b>Acres Burned</b></div>
     </div>
     <div id="toggle-btns">
       <button id="l1" class="selected first" onclick="toggleLayer(this, 'lg-fire-polies')">

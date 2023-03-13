@@ -17,7 +17,7 @@ const BURNED_ACRES = [1, 10, 100, 1000, 10000];
       BA_RADII = [2, 5, 15, 30, 70];
       FILTER_TEMPLATE = ['==', ['number', ['get', 'Year']], 0];
       DESCRIPTIONS = [
-        'Under 1',
+        'Under 1 Acre',
         '1-10',
         '10-100',
         '100-1000',
@@ -40,7 +40,7 @@ function closeInfo() {
 
 let showing = Array.from({length: 30}, (_, i) => i + 1990);
 
-// Setup mapbox basemap
+//-------------------------------Mapbox Basemap---------------------------------
 mapboxgl.accessToken =
   'pk.eyJ1IjoiZnJvc3R5Y3MiLCJhIjoiY2xlbTluMXJ2MHp1dzN4bWxlcmRqcGM2eCJ9.e2bM-nuMkNqXTGDvasGjyQ';
 map = new mapboxgl.Map({
@@ -52,8 +52,8 @@ map = new mapboxgl.Map({
   projection: 'mercator'
 });
 
-// Construct Layers
-// Large Fires layer
+//--------------------------------Map Layers------------------------------------
+// Large Fires
 let large_fires = {
   'id': 'lg-fire-polies',
   'type': 'fill',
@@ -103,6 +103,7 @@ let pre_07 = {
   }
 }
 
+// Acres burned after 2007
 let aft_07 = {
   'id': 'fires-aft-07',
   'type': 'circle',
@@ -137,15 +138,26 @@ let aft_07 = {
   }
 }
 
+//----------------------------------Legend--------------------------------------
 DESCRIPTIONS.forEach((layer, i) => {
     const color = BA_COLORS[i];
-    const item = document.createElement('div');
+    const dot_radius = BA_RADII[i];
+    const break_level = BURNED_ACRES[i];
+    const item = document.createElement('i');
     const key = document.createElement('span');
-    key.className = 'legend-key';
-    item.className = 'child';
+    key.className = 'dot';
+    item.className = 'dot-label';
     key.style.backgroundColor = color;
+    key.style.width = dot_radius * 0.75 + 'px';
+    key.style.height = dot_radius * 0.75 + 'px';
+    if (i < 4) {
+      key.style.marginLeft = 31.5 - (dot_radius * 0.75 * 0.5) + 'px';
+    } else {
+      key.style.marginLeft = '5px';
+    }
 
     const value = document.createElement('span');
+    value.style.marginLeft = '10px';
     value.innerHTML = `${layer}`;
     item.appendChild(key);
     item.appendChild(value);
@@ -153,7 +165,7 @@ DESCRIPTIONS.forEach((layer, i) => {
 });
 
 
-// Large fires data set
+//-------------------------------Loading Layers---------------------------------
 map.on('load', () => {
   map.addSource('large-fires', {
     type: 'geojson',
@@ -170,18 +182,22 @@ map.on('load', () => {
     data: 'assets/08-pre_DNR_Fire_Stats.geojson'
   });
 
-  // Default large fires map
+  // Default showing large fires map
   map.addLayer(large_fires);
   map.addLayer(pre_07);
   map.addLayer(aft_07);
 });
 
+//----------------------------------Pop-ups-------------------------------------
 map.on('click', 'fires-pre-07', (e) => {
   new mapboxgl.Popup()
       .setLngLat(e.features[0].geometry.coordinates)
       .setHTML(`<ul>
               <li><strong>Acres Burned:</strong> ${e.features[0].properties.ACRES_BURNED}</li>
               <li><strong>Year:</strong> ${e.features[0].properties.Year}</li>
+              <li><strong>Start Time:</strong>
+                ${e.features[0].properties.START_DT.substring(0, 10)}</li>
+              <li><strong>County:</strong> ${e.features[0].properties.COUNTY_LABEL_NM}</li>
               </ul>`)
       .addTo(map);
 });
@@ -192,7 +208,17 @@ map.on('click', 'fires-aft-07', (e) => {
       .setHTML(`<ul>
               <li><strong>Acres Burned:</strong> ${e.features[0].properties.ACRES_BURNED}</li>
               <li><strong>Year:</strong> ${e.features[0].properties.Year}</li>
-              <li><strong>Cause:</strong> ${e.features[0].properties.FIREGCAUSE_LABEL_NM}</li>
+              <li><strong>Discover Date:</strong>
+                ${e.features[0].properties.DSCVR_DT.substring(0, 10)}</li>
+              <li><strong>Fire Out Date:</strong>
+                ${e.features[0].properties.FIRE_OUT_DT.substring(0, 10)}</li>
+                <li><strong>County:</strong> ${e.features[0].properties.COUNTY_LABEL_NM}</li>
+              <li><strong>Cause Classification:</strong>
+                ${e.features[0].properties.FIREGCAUSE_LABEL_NM}</li>
+              <li><strong>Cause Detail:</strong>
+                ${e.features[0].properties.FIRESCAUSE_LABEL_NM}</li>
+              <li><strong>Burned Merchant Area:</strong>
+                ${e.features[0].properties.BURN_MERCH_AREA}</li>
               </ul>`)
       .addTo(map);
 });
