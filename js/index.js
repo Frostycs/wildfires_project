@@ -398,12 +398,12 @@ function addAll() {
 }
 
 /*------------------------------Helper functions------------------------------*/
-// Get id shortcut.
+// Get ID shortcut.
 function id(idName) {
   return document.getElementById(idName);
 }
 
-// Query shrotcut
+// Query shortcut
 function q(query) {
   return document.querySelector(query);
 }
