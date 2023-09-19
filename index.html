@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <title>Wildfires in Washington State</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
@@ -10,22 +10,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@500&display=swap" rel="stylesheet">
-  </head>
-
-  <body>
+</head>  
+<body>
     <section id="main">
-      <div id="map"></div>
+    <div id="map"></div>
     </section>
     <!--Header Section-->
     <div class="header">
-      <div class="links">
+    <div class="links">
         <button class="info-btn" onclick="showInfo()">Info</button>
         <a href='about_us.html'>About</a>
-      </div>
-      <div class="header-container">
+    </div>
+    <div class="header-container">
         <img class='fire-icon' src='imgs/fire.svg'/></img>
         <h1>Wildfires in Washington State</h1>
-      </div>
+    </div>
     </div>
     <div class="info-popup">
       <h2>Information</h2>
@@ -39,12 +38,11 @@
     </div>
     <div id="left-bar">
       <div id="story">
-        <section class="intro-sec">
-        <h1 class="story-head">History of Wildfires in Washington State</h1>
-          <p class="story-text"> <strong>Reading through this section will help you better
-            understand the detailed functions of this site.</strong>
-          </p>
-          <p class="story-text">This project contains visualizations of 3 different data sets which allows you to
+    <section class="intro-sec">
+      <h1 class="story-head">History of Wildfires in Washington State</h1>
+        <p class="story-text"> <strong>Reading through this section will help you better
+            understand the detailed functions of this site.</strong></p>
+        <p class="story-text">This project contains visualizations of 3 different data sets which allows you to
             understand more about the history of wildfires in the state. The visualizations of the
             datasets will be called "layers", and each of them will be explained below. You can
             click on each section to see the visualizations. The layer called "Large Fires" illustrates
@@ -59,52 +57,46 @@
               <a id="git-link" href='https://github.com/Frostycs/wildfires_project'>Github</a>
             </button>
           </p>
-        </section>
-        <section id="s1" class="story-sec" onclick="playSection1()">
+    </section>
+    <section id="s1" class="story-sec" onclick="playSection1()">
           <h3 class="story-head">Large Fires In The state From 1990 To 2019</h3>
           <p class="story-text">The Washington State large fires data set is acquired from WADNR
             collected by Washington State Department of Natural Resources.You can interact with the
             buttons to see the data points recorded in this specific data set, or compare with others.
             The green areas represent areas that were affected by large wildfires.
           </p>
-        </section>
-        <section id="s2" class="story-sec" onclick="playSection2()">
+    </section>
+    <section id="s2" class="story-sec" onclick="playSection2()">
           <h3 class="story-head">Reported Forest Damage 1990-2007</h3>
           <p class="story-text">The most intense areas where we have the most acres burned by fires
             in Washington seem focused near its border with Canada and Idaho, the center, and all
             along the coast of Washington but are noticeably less intense than those that seem to
-            take place in the east and the interior from 1990 to 1992.
-          </p>
+            take place in the east and the interior from 1990 to 1992.</p>
           <p class="story-text">From 1992 to 1994 there seems to be an increase in the acres burned
-            by fires in the interior. It stagnated like this until 1996.
-          </p>
+            by fires in the interior. It stagnated like this until 1996.</p>
           <p class="story-text">From 1996 to 1998 while we do see a partial decrease in fires in the
-             interior, we see larger fires break out along Washington's border with Canada and Idaho.
-          </p>
+             interior, we see larger fires break out along Washington's border with Canada and Idaho.</p>
           <p class="story-text">We see an increase in the number of acres burned and the incidences
              in the interior and along the borders to the east and the west coast from 1998 to 2000
              and remains consistent until 2002 from 2002 to 2005 we see a large increase of fires
              and the acres burned focused in the center and the border between Canada, Washington,
-             and Idaho.
-            </p>
-        </section>
-        <section id="s3" class="story-sec" onclick="playSection3()">
+             and Idaho.</p>
+    </section>
+    <section id="s3" class="story-sec" onclick="playSection3()">
           <h3 class="story-head">Reported Fire Damage 2008-2019</h3>
           <p class="story-text">Similarly, the dots for the fire damage between 2008-2019 layer
             represent the number of acres burned from a fire between these dates. Similarly, to the
             last map layer, the bigger the dot, the more acres were burnt as a result of the fire.
             For more information about the differences in the acres burned and to what degree,
-            examine the legend.
-          </p>
+            examine the legend.</p>
           <p class="story-text">Wildfires frequency seems to have increased drastically since 2008.
             This newer dataset consists much more information than the old one, and we were able to
-            show you more information such as the cause of the fires.
-          </p>
-        </section>
+            show you more information such as the cause of the fires.</p>
+    </section>
       </div>
       <div id="legend"><b>Acres Burned</b></div>
-    </div>
-    <div id="toggle-btns">
+      </div>
+      <div id="toggle-btns">
       <button id="l1" class="selected first" onclick="toggleLayer(this, 'lg-fire-polies')">
         Large Fires 1990-2019
       </button>
@@ -114,8 +106,8 @@
       <button id="l3" class="map-btns last" onclick="toggleLayer(this, 'fires-aft-07')">
         Reported Forest Damage 2008-2019
       </button>
-    </div>
-    <div id="years">
+      </div>
+      <div id="years">
       <button id="all-yrs" class="selected-yrs top-left" onclick="clearAll()">All</button>
       <button class="yr-btns" onclick="updateYrs(this, 1990)">1990</button>
       <button class="yr-btns" onclick="updateYrs(this, 1991)">1991</button>
@@ -148,7 +140,7 @@
       <button class="yr-btns" onclick="updateYrs(this, 2018)">2018</button>
       <button class="yr-btns" onclick="updateYrs(this, 2019)">2019</button>
       <button id="no-yrs" class="yr-btns bot-right" onclick="addAll()">None</button>
-    </div>
+      </div>
   </body>
   <!--This script must be directly following the body tag-->
   <script src="js/index.js"></script>
