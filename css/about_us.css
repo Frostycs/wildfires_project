@@ -2,6 +2,10 @@
     font-family: 'Source Sans Pro', sans-serif;
   }
 
+.header {
+  background-image: linear-gradient(rgba(87, 60, 250,1), 70%, rgba(87, 60, 250, 0));
+}
+
   h1 {
     font-size: 36px;
   }
